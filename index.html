@@ -8,6 +8,36 @@
     <title></title>
   </head>
   <body>
-
+    <div class="container">
+      <div class="row">
+        <div class="registerArea col col-sm-6">
+          <h3>Register a new account:</h3>
+          <form id="registerForm">
+            <label for="nameInput">Name:</label>
+            <input id="nameInput" class="form-control" type="text" placeholder="name">
+            <br><label for="initialDepositInput">Initial Deposit:</label>
+            <input id="initialDepositInput" class="form-control" type="number" placeholder="deposit">
+            <br><button type="submit" class="btn btn-success">Submit User</button>
+          </form>
+        </div>
+        <div class="depositArea col col-sm-6">
+          <h3>Deposit or withdraw funds:</h3>
+          <form id="depositForm">
+            <label for="depositInput">Deposit Amount:</label>
+            <input id="withdrawalInput" class="form-control" type="number" placeholder="withdrawal amount">
+            <br><label for="withdrawalInput">Withdrawal Amount:</label>
+            <input id="withdrawalInput" class="form-control" type="number" placeholder="deposit amount">
+            <br><button type="submit" class="btn btn-success">Submit Transaction</button>
+          </form>
+        </div>
+      </div>
+      <br>
+      <div class="row jumbotron">
+        <div class="balanceArea col col-xs-12">
+          <h4>Current Balance:</h4>
+          <p id="balanceDisplay"></p>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
