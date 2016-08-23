@@ -1,0 +1,7 @@
+.users {
+  color: #0645AD;
+}
+
+.users:hover {
+  cursor: pointer;
+}

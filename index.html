@@ -21,7 +21,7 @@
           </form>
         </div>
         <div class="depositArea col col-sm-6">
-          <h3>Deposit or withdraw funds:</h3>
+          <h3>Deposit or withdraw funds from <span id="currentUser">current</span> account:</h3>
           <form id="depositForm">
 
             <label for="depositInput">Deposit Amount:</label>
@@ -38,11 +38,13 @@
       <div class="row">
         <div class="userArea col col-sm-6">
           <h3>Users:</h3>
-          <ul></ul>
+          <ul id="userList"></ul>
         </div>
         <div class="balanceArea col col-sm-6">
           <h3>Current Balance:</h3>
           <p id="balanceDisplay"></p>
+          <h5>Transaction History:</h5>
+          <ul id="history"></ul>
         </div>
       </div>
     </div>
