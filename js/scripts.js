@@ -1,11 +1,18 @@
+// back end logic
 function Account(name, deposit){
-  this.name = name;
+  var nameArray = name.split(" ");
+  nameArray = nameArray.map(function(word) {
+    word = word.toLowerCase();
+    word = word.charAt(0).toUpperCase() + word.slice(1);
+    return word;
+  })
+  this.name = nameArray.join(" ");
   if (isNaN(deposit)) {
     this.balance = 0;
   } else this.balance = deposit;
   this.transactionHistory = [];
   this.transactionHistory.push("<li>+ $" + this.balance.toFixed(2)+ "</li>");
-}
+};
 
 Account.prototype.processTransaction = function(deposit, withdrawal) {
   if (!isNaN(deposit)) {
@@ -18,19 +25,20 @@ Account.prototype.processTransaction = function(deposit, withdrawal) {
   }
 };
 
+//front end logic
 Account.prototype.displayBalance = function() {
   $('#balanceDisplay').text("$" + this.balance.toFixed(2));
   $("#history").html("");
   this.transactionHistory.forEach(function(transaction) {
     $("#history").prepend(transaction);
   })
-  $("#currentUser").text(this.name + "'s");
-}
+};
 
 Account.prototype.changeSelection = function(selection) {
   $("#userList").children().removeClass("backgroundColor");
   $(selection).addClass("backgroundColor");
-}
+  $(".currentUser").text(this.name + "'s");
+};
 
 $(document).ready(function(){
   var users = [];
@@ -45,7 +53,6 @@ $(document).ready(function(){
     users[index].displayBalance();
     $("#userList").append("<li><span class='users'>" + users[index].name + "</span></li>");
     currentUser = index;
-    debugger;
     users[currentUser].changeSelection($(".users").last().parent());
 
     $("#userList li").last().click(function() {
