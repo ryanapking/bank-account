@@ -27,6 +27,11 @@ Account.prototype.displayBalance = function() {
   $("#currentUser").text(this.name + "'s");
 }
 
+Account.prototype.changeSelection = function(selection) {
+  $("#userList").children().removeClass("backgroundColor");
+  $(selection).addClass("backgroundColor");
+}
+
 $(document).ready(function(){
   var users = [];
   var currentUser = -1;
@@ -40,10 +45,13 @@ $(document).ready(function(){
     users[index].displayBalance();
     $("#userList").append("<li><span class='users'>" + users[index].name + "</span></li>");
     currentUser = index;
+    debugger;
+    users[currentUser].changeSelection($(".users").last().parent());
 
     $("#userList li").last().click(function() {
       currentUser = index;
       users[currentUser].displayBalance();
+      users[currentUser].changeSelection(this);
     });
     $("#nameInput").val("");
     $("#initialDepositInput").val("");
